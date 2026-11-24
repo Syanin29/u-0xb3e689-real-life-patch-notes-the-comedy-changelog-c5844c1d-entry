@@ -29,7 +29,6 @@ def main() -> None:
     os.umask(0o022)
     output_dir = Path(os.environ.get("MAKEFUN_OUTPUT_DIR", "/output"))
     output_dir.mkdir(parents=True, exist_ok=True)
-    os.chmod(output_dir, 0o755)
     target = output_dir / "entry.txt"
     target.write_text(PATCH_NOTE, encoding="utf-8")
     os.chmod(target, 0o644)
